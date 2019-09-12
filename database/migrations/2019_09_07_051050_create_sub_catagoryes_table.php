@@ -17,8 +17,8 @@ class CreateSubCatagoryesTable extends Migration
             $table->bigIncrements('id');
             $table->text('name');
             $table->text('src');
-            $table->integer('mainCataogryID')->unsigned();
-            $table->foreign('mainCataogryID')->references('id')->on('catagoryes');
+            $table->integer('mainCatagoryID')->unsigned();
+            $table->foreign('mainCatagroyID')->references('id')->on('catagoryes');
             $table->timestamps();
         });
     }

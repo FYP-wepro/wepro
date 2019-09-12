@@ -32,6 +32,7 @@ Route::get('/register','sellerController@mainCatagory');
 
 Route::get('/sellerSignup','CatagoryesController@signup');
 
-//Route::get('/test', function(){
-//		return view('test');
-//});
+
+Route::get('/test', function(){
+	return view('seller.register2');
+});

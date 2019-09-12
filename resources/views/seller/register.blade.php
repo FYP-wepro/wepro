@@ -10,6 +10,9 @@
   <link rel="stylesheet" type="text/css" href="{{asset('/formWizard/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css')}}">
   <!-- datepicker -->
   <link rel="stylesheet" type="text/css" href="{{asset('/formWizard/css/jquery-ui.min.css')}}">
+  <script type="text/javascript" 
+            src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+    </script>
   <!-- Main Style Css -->
     <link rel="stylesheet" href="{{asset('/formWizard/css/style.css')}}"/>
 
@@ -139,12 +142,28 @@
                   <!-- Default checked -->
 
   
+
                <!-- </div> -->
+
+               <script>
+  $(document).ready(function(){
+$("#subBtn").click(function(){  
+  var data = { 'main[]' : []};
+$(":checked").each(function() {
+  data['main[]'].push($(this).val());
+  alert(data);
+});
+
+    });  
+});
+</script>
  @foreach($catagoryes as $catagory)
  <div class="form-check form-check-inline">             
-<input type="checkbox" name="hob[]" value="<?php echo $catagory->name?>"><?php echo $catagory->name;?>
+<input type="checkbox" id="main[]" name="main[]" value="<?php echo $catagory->name?>"><?php echo $catagory->name;?>
 </div>
 @endforeach
+
+<button id="subBtn">done</button>
 
 
 
