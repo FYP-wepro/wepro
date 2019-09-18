@@ -36,3 +36,6 @@ Route::get('/sellerSignup','CatagoryesController@signup');
 Route::get('/test', function(){
 	return view('seller.register2');
 });
+
+Route::get('/ajax','CatagoryesController@ajax');
+Route::get('/main','CatagoryesController@main');
