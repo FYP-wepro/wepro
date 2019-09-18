@@ -21,5 +21,11 @@ class sellerController extends Controller
 
     }
 
+
+    public function subcata(Request $request){
+    	
+    	return response()->json($request, 200);
+    }
+
     
 }

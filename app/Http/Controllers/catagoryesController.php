@@ -36,10 +36,10 @@ class catagoryesController extends Controller
 
     $catagoryes = DB::table('catagoryes')->where('name', $cataName )->first();
 
-	$catagoryes->id;
+	
 
 $name = $request->input('subcatagory');
-$src = $request->input('image');
+$src = $request->input('imgurl');
 $mainCatagory = $catagoryes->id;
 
 $data=array('name'=>$name,"src"=>$src,"mainCatagoryID"=>$mainCatagory);
@@ -60,8 +60,48 @@ echo "Record inserted successfully.<br/>";
 			return view('subCatagory', ['subCatagoryes' => $subCatagoryes]);
 			
 		}
-        public function signup(){
+        public function ajax()
+        {
+
+    $cataName = $_REQUEST['catagory'];
+    
+
+    $catagoryes = DB::table('catagoryes')->where('name', $cataName )->first();
+
+    //print_r($catagoryes);
+   
+
+
+
+    $catagoryID = $catagoryes->id;
+    
+
+    $sql = "select * from subCatagoryes where mainCatagoryID = $catagoryID ";
+
+           
             
+            $subCatagoryes = DB::select($sql);
+
+           
+          //  $array = array($subCatagoryes);
+          return  json_encode($subCatagoryes);
+
+            
+
+    
+
+       
+
+        
+        }
+
+
+        public function main(){
+
+            $catagoryes = DB::table('catagoryes')->get();
+
+            return  json_encode($catagoryes);
+
         }
 
 }
