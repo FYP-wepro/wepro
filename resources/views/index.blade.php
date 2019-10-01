@@ -3,6 +3,7 @@
 <head>
 	<title>Academica - Learning Page Template</title>
 	<meta charset="UTF-8">
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 	<meta name="description" content="Academica Learning Page Template">
 	<meta name="keywords" content="academica, unica, creative, html">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -196,113 +197,6 @@
 <!------------------------------------------ The Modal box for buyer -------------------------- -->
 
 
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-
-
-
-
-    <div class="modal-c-tabs">
-
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab"><i class="fas fa-user mr-1"></i>
-              Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#panel8" role="tab"><i class="fas fa-user-plus mr-1"></i>
-              Register</a>
-          </li>
-        </ul>
-
-      </div>  
-      <!-- tab panel start -->
-
-              <div class="tab-content">
-          <!--Panel login-->
-          <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
-
-            <!--Body-->
-            <div class="signin-form">
-
-    <form action="{{url('signup')}}" id="idForm">
-
-    <h2>Login As Buyer</h2>
-        <p class="hint-text">Sign up with your social media account</p>
-    <div class="social-btn text-center">
-      <a href="#" class="btn btn-primary btn-lg" title="Facebook"><i class="fa fa-facebook"></i></a>
-      <a href="#" class="btn btn-info btn-lg" title="Twitter"><i class="fa fa-twitter"></i></a>
-      <a href="#" class="btn btn-danger btn-lg" title="Google"><i class="fa fa-google"></i></a>
-    </div>
-    <div class="or-seperator"><b>or</b></div>
-        <div class="form-group">
-          <input type="text" class="form-control input-lg" name="email" placeholder="email or username" required="required">
-        </div>
-      <div class="form-group">
-          <input type="password" class="form-control input-lg" name="password" placeholder="Password" required="required">
-        </div>
-        -->  
-        <div class="form-group">
-            <button type="submit" class="btn btn-success btn-lg btn-block signup-btn" id="submitButtonId">Login</button>
-        </div>
-        <div class="text-center small"><a href="#">Forgot Your password?</a></div>
-    </form>
-    
-</div>
-
-          </div>
-          <!--/.Panel 7-->
-
-          <!--Panel register start-->
-          <div class="tab-pane fade" id="panel8" role="tabpanel">
-
-            <!--Body-->
-
-            <div class="signin-form">
-
-    <form action="{{url('signup')}}" id="idForm">
-
-    <h2>Join Wepro as Buyer</h2>
-        <p class="hint-text">Sign up with your social media account</p>
-    <div class="social-btn text-center">
-      <a href="#" class="btn btn-primary btn-lg" title="Facebook"><i class="fa fa-facebook"></i></a>
-      <a href="#" class="btn btn-info btn-lg" title="Twitter"><i class="fa fa-twitter"></i></a>
-      <a href="#" class="btn btn-danger btn-lg" title="Google"><i class="fa fa-google"></i></a>
-    </div>
-    <div class="or-seperator"><b>or</b></div>
-        <div class="form-group">
-          <input type="text" class="form-control input-lg" name="email" placeholder="email" required="required">
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control input-lg" name="username" placeholder="username" required="required">
-        </div>
-      <div class="form-group">
-          <input type="password" class="form-control input-lg" name="password" placeholder="Password" required="required">
-        </div>
-         
-        <div class="form-group">
-            <button type="submit" class="btn btn-success btn-lg btn-block signup-btn" id="submitButtonId">Sign Up</button>
-        </div>
-        <div class="text-center small"><a href="#">Forgot Your password?</a></div>
-    </form>
-    
-</div>
-
-          </div>
-            
-          </div>
-          <!--/.Panel register end-->
-      
-
-        <!-- end panel tab -->  
-       
-    <button type="button" class="btn btn-outline-info waves-effect ml-auto close">Close</button>
-  </div>
-
-</div>
 
 
 
@@ -342,7 +236,7 @@
             <!--Body-->
             <div class="signin-form">
 
-    <form action="{{url('signup')}}" id="idForm">
+    <form action="" id="idForm">
 
     <h2>Sign In</h2>
         <p class="hint-text">Sign up with your social media account</p>
@@ -360,7 +254,7 @@
         </div>
          
         <div class="form-group">
-            <button type="submit" class="btn btn-success btn-lg btn-block signup-btn" id="submitButtonId">Sign Up</button>
+            <button type="button" class="btn btn-success btn-lg btn-block signup-btn" id="loginSeller">Sign Up</button>
         </div>
         <div class="text-center small"><a href="#">Forgot Your password?</a></div>
     </form>
@@ -377,7 +271,7 @@
 
             <div class="signin-form">
 
-    <form action="{{url('sellerSignup')}}" id="idForm">
+    <form action="" id="idForm">
 
     <h2>Join Wepro As Seller </h2>
         <p class="hint-text">Sign up with your social media account</p>
@@ -387,21 +281,42 @@
       <a href="#" class="btn btn-danger btn-lg" title="Google"><i class="fa fa-google"></i></a>
     </div>
     <div class="or-seperator"><b>or</b></div>
+    
         <div class="form-group">
-          <input type="text" class="form-control input-lg" name="email" placeholder="email" required="required">
+          <input type="text" class="form-control input-lg" name="email" id="email" placeholder="email" required="required">
         </div>
         <div class="form-group">
-          <input type="text" class="form-control input-lg" name="username" placeholder="Username" required="required">
+          <input type="text" class="form-control input-lg" name="username" id="username" placeholder="Username" required="required">
         </div>
       <div class="form-group">
-          <input type="password" class="form-control input-lg" name="password" placeholder="Password" required="required">
+          <input type="password" class="form-control input-lg" name="password" id="password" placeholder="Password" required="required">
         </div>
         
         <div class="form-group">
-            <button type="submit" class="btn btn-success btn-lg btn-block signup-btn" id="submitButtonId">Sign Up</button>
+            <button type="button" class="btn btn-success btn-lg btn-block signup-btn" id="registerSeller">Sign Up</button>
         </div>
+
+        <div class="alert alert-danger  sellerError" style="display:none">
+         
+        </div>
+
+        <!--
+@if ($errors->any())
+
+    <div class="alert alert-success alert-dismissible">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+-->
         <div class="text-center small"><a href="#">Forgot Your password?</a></div>
     </form>
+
+
     
 </div>
 
@@ -443,37 +358,40 @@
 <!-- javascript for model box -->
 				<script>
 // Get the modal
-var modal = document.getElementById("myModal");
+//var modal = document.getElementById("myModal");
 
 var modal1 = document.getElementById("myModal1");
 
 // Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+//ar btn = document.getElementById("myBtn");
 
 var btn2 = document.getElementById("myBtn2");
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+//var span = document.getElementsByClassName("close")[0];
 
 var span2 = document.getElementsByClassName("closeSeller")[0];
 
 // When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
+//btn.onclick = function() {
+ // modal.style.display = "block";
+//}
 
 
 btn2.onclick = function() {
   modal1.style.display = "block";
 }
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
+//span.onclick = function() {
+  //modal.style.display = "none";
+//}
 
 
 span2.onclick = function() {
   modal1.style.display = "none";
+  $("#username").val('');
+  $("#email").val();
+  $("#password").val();
 }
 
 // When the user clicks anywhere outside of the modal, close it
@@ -486,6 +404,9 @@ window.onclick = function(event) {
 window.onclick = function(event) {
   if (event.target == modal1) {
     modal1.style.display = "none";
+    $("#username").val('');
+  $("#email").val();
+  $("#password").val();
   }
 }
 </script>
@@ -536,13 +457,32 @@ window.onclick = function(event) {
 		<div class="msf-warp">
 			<div class="container">
 				<h5>Search By catagory</h5>
-				<form class="multi-search-form ">
+				<form class="multi-search-form form-inline ">
 					
-					<input type="text" placeholder="FreeLancer">
+					<!--<input type="text" placeholder="FreeLancer">-->
 					<!--<input type="text" placeholder="Level">
 					<input type="text" placeholder="Date">
 					<input type="text" placeholder="Teacher">
 					<input type="text" placeholder="Price">-->
+          <?php
+    
+      echo '<select id="catagory" name="catagory" class="form-control" style="width:80%;height:49px;border-radius:0;"><option selected disabled>Search Top rated FreeLancer</option>';
+
+      ?>
+
+       // Open your drop down box
+      @foreach($catagoryes as $catagory)
+
+    <?php  echo '<option>' .$catagory->name. '</option>';
+
+    ?>
+
+    @endforeach
+<?php   
+
+echo '</select>';
+
+?>
 					<button class="site-btn">Search <i class="fa fa-angle-right"></i></button>
 				</form>
 			</div>
@@ -619,194 +559,58 @@ window.onclick = function(event) {
 				<span>Only  the best</span>
 				<h2>Our Courses</h2>
 			</div>
-			<div class="course-slider owl-carousel">
+			
 				<!-- course -->
-				<div class="course-item">
-					<figure class="course-preview">
-						<img src="{{asset('img/courses/1.jpg')}}" alt="">
-						<div class="price">$25</div>
-					</figure>
-					<div class="course-content">
-						<div class="cc-text">
-							<h5>Italian for Begginers & Advanced Course</h5>
-							<p>Donec molestie tincidunt tellus sit amet aliquet. Proin auctor nisi ut purus eleifend, et auctor lorem hendrerit. </p>
-							<span><i class="flaticon-student-2"></i>20</span>
-							<span><i class="flaticon-placeholder"></i>3</span>
-							<div class="rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star i-fade"></i>
-							</div>
-						</div>
-						<div class="seller-info">
-							<div class="seller-pic set-bg" data-setbg="{{asset('img/courses/sellers/1.jpg')}}"></div>
-							<h6>By Sebastian Smith, <span>Italian Teacher</span></h6>
-						</div>
-					</div>
-				</div>
+				
+
+          
+            <div class="row course-item sellerSlider" style="background-color: transparent;">
+
+            </div>
+          
+					
+				
+
+        
 				<!-- course -->
-				<div class="course-item">
-					<figure class="course-preview">
-						<img src="{{asset('img/courses/2.jpg')}}" alt="">
-						<div class="price">$25</div>
-					</figure>
-					<div class="course-content">
-						<div class="cc-text">
-							<h5>English Literature Advanced Course</h5>
-							<p>Donec molestie tincidunt tellus sit amet aliquet. Proin auctor nisi ut purus eleifend, et auctor lorem hendrerit. </p>
-							<span><i class="flaticon-student-2"></i>20</span>
-							<span><i class="flaticon-placeholder"></i>3</span>
-							<div class="rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star i-fade"></i>
-							</div>
-						</div>
-						<div class="seller-info">
-							<div class="seller-pic set-bg" data-setbg="{{asset('img/courses/sellers/2.jpg')}}"></div>
-							<h6>By Maria Williams, <span>English Teacher</span></h6>
-						</div>
-					</div>
-				</div>
+				
 				<!-- course -->
-				<div class="course-item">
-					<figure class="course-preview">
-						<img src="{{asset('img/courses/3.jpg')}}" alt="">
-						<div class="price">$25</div>
-					</figure>
-					<div class="course-content">
-						<div class="cc-text">
-							<h5>Portrait Photography Course for Begginers</h5>
-							<p>Donec molestie tincidunt tellus sit amet aliquet. Proin auctor nisi ut purus eleifend, et auctor lorem hendrerit. </p>
-							<span><i class="flaticon-student-2"></i>20</span>
-							<span><i class="flaticon-placeholder"></i>3</span>
-							<div class="rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star i-fade"></i>
-							</div>
-						</div>
-						<div class="seller-info">
-							<div class="seller-pic set-bg" data-setbg="{{asset('img/courses/sellers/3.jpg')}}"></div>
-							<h6>By Jack Smith, <span>Photographer</span></h6>
-						</div>
-					</div>
-				</div>
+				
 				<!-- course -->
-				<div class="course-item">
-					<figure class="course-preview">
-						<img src="{{asset('img/courses/4.jpg')}}" alt="">
-						<div class="price">$25</div>
-					</figure>
-					<div class="course-content">
-						<div class="cc-text">
-							<h5>Italian for Begginers & Advanced Course</h5>
-							<p>Donec molestie tincidunt tellus sit amet aliquet. Proin auctor nisi ut purus eleifend, et auctor lorem hendrerit. </p>
-							<span><i class="flaticon-student-2"></i>20</span>
-							<span><i class="flaticon-placeholder"></i>3</span>
-							<div class="rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star i-fade"></i>
-							</div>
-						</div>
-						<div class="seller-info">
-							<div class="seller-pic set-bg" data-setbg="{{asset('img/courses/sellers/1.jpg')}}"></div>
-							<h6>By Sebastian Smith, <span>Italian Teacher</span></h6>
-						</div>
-					</div>
-				</div>
 				<!-- course -->
-				<div class="course-item">
-					<figure class="course-preview">
-						<img src="{{asset('img/courses/5.jpg')}}" alt="">
-						<div class="price">$25</div>
-					</figure>
-					<div class="course-content">
-						<div class="cc-text">
-							<h5>English Literature Advanced Course</h5>
-							<p>Donec molestie tincidunt tellus sit amet aliquet. Proin auctor nisi ut purus eleifend, et auctor lorem hendrerit. </p>
-							<span><i class="flaticon-student-2"></i>20</span>
-							<span><i class="flaticon-placeholder"></i>3</span>
-							<div class="rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star i-fade"></i>
-							</div>
-						</div>
-						<div class="seller-info">
-							<div class="seller-pic set-bg" data-setbg="{{asset('img/courses/sellers/2.jpg')}}"></div>
-							<h6>By Maria Williams, <span>English Teacher</span></h6>
-						</div>
-					</div>
-				</div>
 				<!-- course -->
-				<div class="course-item">
-					<figure class="course-preview">
-						<img src="{{asset('img/courses/6.jpg')}}" alt="">
-						<div class="price">$25</div>
-					</figure>
-					<div class="course-content">
-						<div class="cc-text">
-							<h5>Portrait Photography Course for Begginers</h5>
-							<p>Donec molestie tincidunt tellus sit amet aliquet. Proin auctor nisi ut purus eleifend, et auctor lorem hendrerit. </p>
-							<span><i class="flaticon-student-2"></i>20</span>
-							<span><i class="flaticon-placeholder"></i>3</span>
-							<div class="rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star i-fade"></i>
-							</div>
-						</div>
-						<div class="seller-info">
-							<div class="seller-pic set-bg" data-setbg="{{asset('img/courses/sellers/3.jpg')}}"></div>
-							<h6>By Jack Smith, <span>Photographer</span></h6>
-						</div>
-					</div>
-				</div>
 				<!-- course -->
-				<div class="course-item">
-					<figure class="course-preview">
-						<img src="{{asset('img/courses/3.jpg')}}" alt="">
-						<div class="price">$25</div>
-					</figure>
-					<div class="course-content">
-						<div class="cc-text">
-							<h5>Portrait Photography Course for Begginers</h5>
-							<p>Donec molestie tincidunt tellus sit amet aliquet. Proin auctor nisi ut purus eleifend, et auctor lorem hendrerit. </p>
-							<span><i class="flaticon-student-2"></i>20</span>
-							<span><i class="flaticon-placeholder"></i>3</span>
-							<div class="rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star i-fade"></i>
-							</div>
-						</div>
-						<div class="seller-info">
-							<div class="seller-pic set-bg" data-setbg="{{asset('img/courses/sellers/3.jpg')}}"></div>
-							<h6>By Jack Smith, <span>Photographer</span></h6>
-						</div>
-					</div>
-				</div>
-			</div>
+				
+			
 		</div>
 	</section>
 	<!-- Courses section end -->
+<script>
+          $(document).ready(function(){
+            $.ajax({
+              url:"{{url('/sellers')}}",
+              success:function(data){
+                var obj = JSON.parse(data);
+                console.log(obj[0].coverImg);
+                var sellerHtml='';
+                $.each(obj, function(i){
+                  sellerHtml+='<div class="col-lg-4">';                                            
+                  sellerHtml+='<a href="#">';
+                  sellerHtml +='<figure class="course-preview">';
+                  sellerHtml+='<img class=".img-responsive" src="http://localhost/wepro/public/seller/'+obj[i].coverImg+'" alt="" style="height:233px;">';
+                  sellerHtml+='<div class="price">'+obj[i].pRate+'$</div></figure><div class="course-content"><div class="cc-text" style="height:282px">';
+                  sellerHtml+='<h5>'+obj[i].pTitle+'</h5><p>'+obj[i].discription+'</p><span><i class="flaticon-student-2"></i>20</span><span><i class="flaticon-placeholder"></i>3</span>';
+                  sellerHtml+='<div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star i-fade"></i></div>';
+                  sellerHtml+='</div><div class="seller-info"><div class="seller-pic set-bg"><img style="border-radius:30px;height:100%" src="http://localhost/wepro/public/seller/'+obj[i].profileImg+'"></div><h6>'+obj[i].fullName+'</span></h6></div></div></a></div>';
+                });
 
+                $(".sellerSlider").html(sellerHtml);
+
+              }
+
+            });
+          })
+        </script>
 
 
 	<!-- Fact section -->
@@ -953,14 +757,67 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 				
 			</div>
 		</div>
-
-
-
 	</footer>
 	<!-- Footer section end -->
 
 
 	<!--====== Javascripts & Jquery ======-->
+
+  <script>
+    $("#registerSeller").click(function(e){
+       e.preventDefault();
+      var username=$("#username").val();
+      var email =$("#email").val();
+      var password=$("#password").val();
+                                                  //alert(catagory);
+                                                  $.ajax({
+
+                                                             type:'GET',
+
+                                                             url:'{{url('/sellerSignup')}}',
+
+                                                             data:{email:email,username:username,password:password},
+                                                            
+                                                             
+
+                                                             success:function(data){
+                                                            if(data.success){
+                                                              //console.log(data.success);
+                                                              top.location.href="{{url('/register')}}";
+                                                              $("#username").val('');
+                                                              $("#email").val('');
+                                                              $("#password").val('');
+                                                              $("#myModal1").hide();
+                                                              //console.log(data.success);
+                                                            }
+
+                                                          if(data.errors)
+                                                          {
+                                                          $.each(data.errors, function(key, value){
+                                                              //console.log(key);
+                                                              $('.sellerError').show();
+                                                              $('.sellerError').append('<p>'+value+'</p>');
+                                                          });
+
+                                                          setTimeout(function() {
+                                                            $('.sellerError').html('');
+                                                            $('.sellerError').css('display','none');
+                                                            }, 3000);
+                                                              
+                                                          }    
+                                                              
+                                                                  
+
+
+
+                                                             }
+
+                                                          });
+
+
+
+    });
+  </script>
 	<script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
 	<script src="{{asset('js/bootstrap.min.js')}}"></script>
 	<script src="{{asset('js/owl.carousel.min.js')}}"></script>

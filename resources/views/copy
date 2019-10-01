@@ -1,0 +1,225 @@
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+
+
+
+
+    <div class="modal-c-tabs">
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab"><i class="fas fa-user mr-1"></i>
+              Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#panel8" role="tab"><i class="fas fa-user-plus mr-1"></i>
+              Register</a>
+          </li>
+        </ul>
+
+      </div>  
+      <!-- tab panel start -->
+
+              <div class="tab-content">
+          <!--Panel login-->
+          <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
+
+            <!--Body-->
+            <div class="signin-form">
+
+    <form action="" id="idForm">
+
+    <h2>Login As Buyer</h2>
+        <p class="hint-text">Sign up with your social media account</p>
+    <div class="social-btn text-center">
+      <a href="#" class="btn btn-primary btn-lg" title="Facebook"><i class="fa fa-facebook"></i></a>
+      <a href="#" class="btn btn-info btn-lg" title="Twitter"><i class="fa fa-twitter"></i></a>
+      <a href="#" class="btn btn-danger btn-lg" title="Google"><i class="fa fa-google"></i></a>
+    </div>
+    <div class="or-seperator"><b>or</b></div>
+        <div class="form-group">
+          <input type="text" class="form-control input-lg" name="email" placeholder="email or username" required="required">
+        </div>
+      <div class="form-group">
+          <input type="password" class="form-control input-lg" name="password" placeholder="Password" required="required">
+        </div>
+        -->  
+        <div class="form-group">
+            <button type="button" class="btn btn-success btn-lg btn-block signup-btn" id="submitButtonId">Login</button>
+        </div>
+        <div class="text-center small"><a href="#">Forgot Your password?</a></div>
+    </form>
+    
+</div>
+
+          </div>
+          <!--/.Panel 7-->
+
+          <!--Panel register start-->
+          <div class="tab-pane fade" id="panel8" role="tabpanel">
+
+            <!--Body-->
+
+            <div class="signin-form">
+
+    <form action="{{url('signup')}}" id="idForm">
+
+    <h2>Join Wepro as Buyer</h2>
+        <p class="hint-text">Sign up with your social media account</p>
+    <div class="social-btn text-center">
+      <a href="#" class="btn btn-primary btn-lg" title="Facebook"><i class="fa fa-facebook"></i></a>
+      <a href="#" class="btn btn-info btn-lg" title="Twitter"><i class="fa fa-twitter"></i></a>
+      <a href="#" class="btn btn-danger btn-lg" title="Google"><i class="fa fa-google"></i></a>
+    </div>
+    <div class="or-seperator"><b>or</b></div>
+        <div class="form-group">
+          <input type="text" class="form-control input-lg" name="email" placeholder="email" required="required">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control input-lg" name="username" placeholder="username" required="required">
+        </div>
+      <div class="form-group">
+          <input type="password" class="form-control input-lg" name="password" placeholder="Password" required="required">
+        </div>
+         
+        <div class="form-group">
+            <button type="submit" class="btn btn-success btn-lg btn-block signup-btn" id="buyerRegister">Sign Up</button>
+        </div>
+        <div class="text-center small"><a href="#">Forgot Your password?</a></div>
+    </form>
+    
+</div>
+
+          </div>
+            
+          </div>
+          <!--/.Panel register end-->
+      
+
+        <!-- end panel tab -->  
+       
+    <button type="button" class="btn btn-outline-info waves-effect ml-auto close">Close</button>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      <form action="">
+                    <div class="form-group">
+                    <h2>
+                            <span class="step-icon"><i class="zmdi zmdi-account"></i></span>
+                            <span class="step-text">Personal</span>
+                            </h2>
+                  </div>
+                <div class="row">  
+                  <div class="form-group col-lg-6">
+                    <label for="fname">Full Name:</label>
+                    <input type="text" class="form-control" id="fullName" name="fullnName" placeholder="Full Name">
+                  </div>
+                  <div class="form-group col-lg-6">
+                    <label for="title">Pofressenal Title</label>
+                    <input type="text" class="form-control" id="pTitle" name="pTiltle" placeholder="e.g Professional WordPress developer">
+                  </div>
+                </div>  
+                
+                <div class="form-group">
+                    <label for="title">Discription</label>
+                    <textarea type="text" class="form-control" rows="7" name="discription" id="discription" placeholder="e.g This is EXpert WordPress Developer...."></textarea>
+                 </div>
+                 <div class="row">
+                 <div class="form-group col-lg-6">
+                  <label class="form-row-inner">
+                    <label for="title">Profile Image</label>
+                                          <img src="http://via.placeholder.com/150x150" id="output" style="border-radius:50%; width: 100px  ;height: 100px; cursor: pointer;"/>
+                                <input type='file' id="profileImg" name="profileImg" onchange="readURL1(this);" accept=".png, .jpg, .jpeg" style="display: none;" />
+                                  
+                                  <script>
+                    function readURL1(input, id) {
+                      id = id || '#output';
+                      if (input.files && input.files[0]) {
+                          var reader = new FileReader();
+                   
+                          reader.onload = function (e) {
+                              $(id)
+                                      .attr('src', e.target.result)
+                                      .width(200)
+                                      .height(150);
+                          };
+                   
+                          reader.readAsDataURL(input.files[0]);
+                      }
+                   }
+              </script> 
+                      
+                      
+
+                               </label>
+
+                 </div>
+
+
+              <div class="form-group col-lg-6">
+                  <div class="avatar-edit">
+                  <input type='file' id="coverImg" name="coverImg" onchange="readURL2(this);" accept=".png, .jpg, .jpeg" />
+                  <label for="imageUpload"></label>
+                  <img id="blah" src="https://www.tutsmake.com/wp-content/uploads/2019/01/no-image-tut.png" class="" width="200" height="150"/>
+                  </div>
+                  <script>
+                    function readURL2(input, id) {
+                      id = id || '#blah';
+                      if (input.files && input.files[0]) {
+                          var reader = new FileReader();
+                   
+                          reader.onload = function (e) {
+                              $(id)
+                                      .attr('src', e.target.result)
+                                      .width(200)
+                                      .height(150);
+                          };
+                   
+                          reader.readAsDataURL(input.files[0]);
+                      }
+                   }
+              </script> 
+              </div>  
+
+              </div> 
+
+              <div class="row">
+                <div class="form-group col-lg-4">
+                    <label for="title">Profile Rate pr Hour</label>
+                    <input type="int" class="form-control" name="pRate" placeholder="Hourly rate ">
+                  </div>
+              </div>
+
++
+                 
+                  
+           
+
+                        <ul class="list-inline pull-right">
+                            <li><button type="button" class="btn btn-primary next-step" id="step1_submit">Save and continue</button></li>
+                        </ul>
+                         </form>
+                         

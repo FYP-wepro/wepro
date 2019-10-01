@@ -30,12 +30,33 @@ Route::get('/register','sellerController@mainCatagory');
 
 
 
-Route::get('/sellerSignup','CatagoryesController@signup');
 
 
-Route::get('/test', function(){
-	return view('seller.register2');
-});
 
 Route::get('/ajax','CatagoryesController@ajax');
+Route::get('/getName','CatagoryesController@getName');
 Route::get('/main','CatagoryesController@main');
+
+
+Route::get('/sellerSignup','sellerController@signup');
+Route::get('/professional' ,'sellerController@professional');
+
+//Route::get('/personal', 'sellerController@personal');
+
+//Route::get('image', 'sellerController@index');
+ Route::post('personal', 'sellerController@personal')->name('personal');
+
+ Route::get('/personalSave','sellerController@personalSave');
+
+ Route::get('sellers','sellerController@sellers');
+
+ Route::get('/S_dashboard',function(){
+
+ 	return view('welcome');
+
+ });
+
+Route::get('showSeller/{id}','sellerController@showSeller');
+
+
+

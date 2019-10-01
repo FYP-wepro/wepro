@@ -1,39 +1,52 @@
-$(function(){
-    $("#form-total").steps({
-        headerTag: "h2",
-        bodyTag: "section",
-        transitionEffect: "fade",
-        enableAllSteps: true,
-        autoFocus: true,
-        transitionEffectSpeed: 500,
-        titleTemplate : '<div class="title">#title#</div>',
-        labels: {
-            previous : 'Previous',
-            next : 'Next Step',
-            finish : 'Submit',
-            current : ''
-        },
-        onStepChanging: function (event, currentIndex, newIndex) { 
-            var fullname = $('#first_name').val() + ' ' + $('#last_name').val();
-            var email = $('#email').val();
-            var phone = $('#phone').val();
-            var username = $('#username').val();
-            var gender = $('form input[type=radio]:checked').val();
-            var address = $('#address').val();
+$(document).ready(function () {
+    //Initialize tooltips
+    $('.nav-tabs > li a[title]').tooltip();
+    
+    //Wizard
+    $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
 
-            $('#fullname-val').text(fullname);
-            $('#email-val').text(email);
-            $('#phone-val').text(phone);
-            $('#username-val').text(username);
-            $('#address-val').text(address);
-            $('#gender-val').text(gender);
-
-            return true;
+        var $target = $(e.target);
+    
+        if ($target.parent().hasClass('disabled')) {
+            return false;
         }
     });
-    $("#date").datepicker({
-        dateFormat: "MM - DD - yy",
-        showOn: "both",
-        buttonText : '<i class="zmdi zmdi-chevron-down"></i>',
+
+    $(".next-step").click(function (e) {
+
+        var $active = $('.wizard .nav-tabs li.active');
+        $active.next().removeClass('disabled');
+        nextTab($active);
+
+    });
+    $(".prev-step").click(function (e) {
+
+        var $active = $('.wizard .nav-tabs li.active');
+        prevTab($active);
+
     });
 });
+
+//////////////////////////////////////////////////
+
+function nextTab(elem) {
+    $(elem).next().find('a[data-toggle="tab"]').click();
+}
+function prevTab(elem) {
+    $(elem).prev().find('a[data-toggle="tab"]').click();
+}
+
+//////////////////////////////////////////////
+ 
+
+/////////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+

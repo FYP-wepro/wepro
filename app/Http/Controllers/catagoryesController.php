@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\Catagorye;
 class catagoryesController extends Controller
 {
     //
@@ -47,19 +48,52 @@ DB::table('subcatagoryes')->insert($data);
 echo "Record inserted successfully.<br/>";
 		}
 
+
+
+
 		public function subCatagory($id){
+
+            $catagoryes = Catagorye::find($id);
+            $mainCatagoryName=$catagoryes->name;
+            
+            //print_r($comments);
+            //foreach ($comments as $catagoryes) {
+              //  echo($catagoryes->name);
+            //}
+            //exit();
+
+
+
 
 
 			$sql = "select * from subCatagoryes where mainCatagoryID = $id ";
+
+
            
            
             
 			$subCatagoryes = DB::select($sql);
-            
+           
+            //$subCatagoryes['mainCatagoryName']=$mainCatagoryName;
 
-			return view('subCatagory', ['subCatagoryes' => $subCatagoryes]);
-			
+             //print_r($subCatagoryes);
+
+           
+           //print_r($data);
+           
+
+			return view('subCatagory', ['subCatagoryes'=>$subCatagoryes]);
+            
 		}
+
+        public function getName(){
+
+            $id=$_REQUEST['cataID'];
+            $name = DB::table('catagoryes')->where('id', $id )->first();
+            return  json_encode($name);
+
+
+        }
         public function ajax()
         {
 
