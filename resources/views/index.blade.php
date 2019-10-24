@@ -423,7 +423,7 @@ window.onclick = function(event) {
 					<li><a href="about.html">About us</a></li>
 					<li><a href="courses.html">Courses</a></li>
 					<li><a href="blog.html">News</a></li>
-					<li><a href="contact.html">Contact</a></li>
+					<li><a href="{{url('/jobReuestForm')}}">Post Request</a></li>
 				</ul>
 			</div>
 		</div>
@@ -457,7 +457,7 @@ window.onclick = function(event) {
 		<div class="msf-warp">
 			<div class="container">
 				<h5>Search By catagory</h5>
-				<form class="multi-search-form form-inline ">
+				<form action="{{url('subCatagory2')}}" class="multi-search-form form-inline">
 					
 					<!--<input type="text" placeholder="FreeLancer">-->
 					<!--<input type="text" placeholder="Level">
@@ -470,10 +470,9 @@ window.onclick = function(event) {
 
       ?>
 
-       // Open your drop down box
       @foreach($catagoryes as $catagory)
 
-    <?php  echo '<option>' .$catagory->name. '</option>';
+    <?php  echo '<option value="'.$catagory->id.'">' .$catagory->name. '</option>';
 
     ?>
 

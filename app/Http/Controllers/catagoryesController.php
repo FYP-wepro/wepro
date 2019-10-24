@@ -12,7 +12,6 @@ class catagoryesController extends Controller
     public function mainCatagory(){
 
     	$catagoryes = DB::table('catagoryes')->get();
-
         return view('index', ['catagoryes' => $catagoryes]);
 
 
@@ -53,8 +52,6 @@ echo "Record inserted successfully.<br/>";
 
 		public function subCatagory($id){
 
-            $catagoryes = Catagorye::find($id);
-            $mainCatagoryName=$catagoryes->name;
             
             //print_r($comments);
             //foreach ($comments as $catagoryes) {
@@ -85,6 +82,40 @@ echo "Record inserted successfully.<br/>";
 			return view('subCatagory', ['subCatagoryes'=>$subCatagoryes]);
             
 		}
+
+        public function subCatagory2(Request $req){
+           $catagoryId = $req->input('catagory');
+            
+            
+            //print_r($comments);
+            //foreach ($comments as $catagoryes) {
+              //  echo($catagoryes->name);
+            //}
+            //exit();
+
+
+
+
+
+            $sql = "select * from subCatagoryes where mainCatagoryID = $catagoryId";
+
+
+           
+           
+            
+            $subCatagoryes = DB::select($sql);
+           
+            //$subCatagoryes['mainCatagoryName']=$mainCatagoryName;
+
+             //print_r($subCatagoryes);
+
+           
+           //print_r($data);
+           
+
+            return view('subCatagory', ['subCatagoryes'=>$subCatagoryes]);
+            
+        }
 
         public function getName(){
 

@@ -208,9 +208,23 @@ FROM sellerpersonals, ssubcatagories
     }
 
 
-    public function testRoute(Request $req){
-        $a=$req->name;
-        return $a;
+   //////////////////////////////////////////////////////////////////////
+
+    public function sellerProfile($id){
+       // $sellerpersonals = Sellerpersonal::find($id);
+        //$sql="select sellerpersonals.*, sskills.*
+               // FROM sellerpersonals, sskills
+               // where Sellerpersonals.sellerId=sskills.sellerId AND Sellerpersonals.sellerId=$id
+      // ";
+        $sql="select * from sskills where sellerId= $id";
+        $sql2="select * from sellerpersonals where sellerId= $id";
+         $skills = DB::select($sql);
+        $sellers = DB::select($sql2);
+
+        
+         //$name = array('skill' => 'fahad' );
+         return view('seller.sellerProfile', ['sellers'=>$sellers],['skills'=>$skills]);
+
     }
 
 

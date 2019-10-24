@@ -26,17 +26,20 @@
 	<h3 style="text-align:center; margin:30px; ">Our To Rated Seller</h3>
 <div class="row">
 @foreach($sellers as $seller)
-<div class="col-lg-4" style="margin-left: 30px;">
+<a href="/wepro/public/sellerProfile/{{$seller->sellerId}}" style="cursor: pointer;">
+<div class="col-lg-4" style="margin-left: 10px;">
 
-<div class="course-item" style="width: 429.667px;">
+<div class="course-item" style="width: 380.667px;">
+	
 					<figure class="course-preview">
-						<img src="http://localhost/wepro/public/seller/{{$seller->coverImg}}" alt="">
+						<img src="http://localhost/wepro/public/seller/{{$seller->coverImg}}" alt="" style="height: 233px;">
 						<div class="price">{{$seller->pRate}}$</div>
 					</figure>
 					<div class="course-content">
-						<div class="cc-text">
+						<div class="cc-text" style="height: 233px;">
 							<h5>{{$seller->pTitle}}</h5>
 							<p>{{$seller->discription}}</p>
+							
 							<span><i class="flaticon-student-2"></i>20</span>
 							<span><i class="flaticon-placeholder"></i>3</span>
 							<div class="rating">
@@ -45,17 +48,20 @@
 								<i class="fa fa-star"></i>
 								<i class="fa fa-star"></i>
 								<i class="fa fa-star i-fade"></i>
-							</div>
+							
+						</div>
 						</div>
 						<div class="seller-info">
 							<div class="seller-pic set-bg" data-setbg="http://localhost/wepro/public/seller/{{$seller->profileImg}}"></div>
-							<h6>{{$seller->fullName}} <span style="margin-left: 185px;">{{$seller->country}}</span></h6>
+							<h6>{{$seller->fullName}} <span style="margin-left: 260px;">{{$seller->country}}</span></h6>
 						</div>
 					</div>
 				</div>
 		  </div>
+		  </a>
 @endforeach
 </div>
+
 </body>
 
 </html>

@@ -142,7 +142,7 @@ function prevTab(elem) {
                 <div class="form-group">
                     <label for="title">Discription</label>
                     <textarea type="text" class="form-control" rows="7" name="discription" id="discription" placeholder="e.g This is EXpert WordPress Developer...."></textarea>
-                 </div>-->
+                 </div>
                  <div class="row">
                  <div class="form-group col-lg-6">
                   <label class="form-row-inner">

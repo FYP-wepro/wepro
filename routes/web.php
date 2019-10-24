@@ -25,6 +25,7 @@ Route::get('/addSubCatagoryInsert','CatagoryesController@addSubCatagoryInsert');
 
 
 Route::get('subCatagory/{id}','CatagoryesController@subCatagory');
+Route::get('/subCatagory2','CatagoryesController@subCatagory2');
 
 Route::get('/register','sellerController@mainCatagory');
 
@@ -58,5 +59,19 @@ Route::get('/professional' ,'sellerController@professional');
 
 Route::get('showSeller/{id}','sellerController@showSeller');
 
+Route::get('/sellerProfile/{id}','sellerController@sellerProfile');
+
+
+///////////////////////////////////////////////// Post Request //////////////////////////
+
+Route::get('/jobReuestForm','requestController@form');
+
+
+
+Route::get('/vue',function(){
+
+ 	return view('vue');
+
+ });
 
 
