@@ -9,6 +9,6 @@ class Seller extends Model
     //
     public function sellerpersonal()
     {
-        return $this->hasMany('App\sellerpersonal','sellerId');
+        return $this->hasMany('App\Sellerpersonal','sellerId');
     }
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Academica - Learning Page Template</title>
+	<title>Wepro</title>
 	<meta charset="UTF-8">
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 	<meta name="description" content="Academica Learning Page Template">
@@ -196,7 +196,185 @@
 
 <!------------------------------------------ The Modal box for buyer -------------------------- -->
 
+@if($errors->any())
+<h4>{{$errors->first()}}</h4>
+@endif
+<div id="buyerModel" class="modal">
 
+  <!-- Modal content -->
+  <div class="modal-content">
+
+
+
+
+    <div class="modal-c-tabs">
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#buyerLogin" role="tab"><i class="fas fa-user mr-1"></i>
+              Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#buyserRegister" role="tab"><i class="fas fa-user-plus mr-1"></i>
+              Register</a>
+          </li>
+        </ul>
+
+      </div>  
+      <!-- tab panel start -->
+
+              <div class="tab-content">
+          <!--Panel login-->
+          <div class="tab-pane fade in show active" id="buyerLogin" role="tabpanel">
+
+            <!--Body-->
+            <div class="signin-form">
+
+    <form action="" id="idForm">
+
+    <h2>Sign Buyer</h2>
+        <p class="hint-text">Sign up with your social media account</p>
+    <div class="social-btn text-center">
+      <a href="#" class="btn btn-primary btn-lg" title="Facebook"><i class="fa fa-facebook"></i></a>
+      <a href="#" class="btn btn-info btn-lg" title="Twitter"><i class="fa fa-twitter"></i></a>
+      <a href="#" class="btn btn-danger btn-lg" title="Google"><i class="fa fa-google"></i></a>
+    </div>
+    <div class="or-seperator"><b>or</b></div>
+        <div class="form-group">
+          <input type="text" class="form-control input-lg" name="buyeremail" id="buyeremail" placeholder="email or username" required="required">
+        </div>
+      <div class="form-group">
+          <input type="password" class="form-control input-lg" name="buyerpassword" id="buyerpassword" placeholder="Password" required="required">
+        </div>
+         
+        <div class="form-group">
+            <button type="button" class="btn btn-success btn-lg btn-block signup-btn" id="loginbuyer">Login</button>
+        </div>
+        <div class="alert alert-danger buyerLoginError" style="display:none"></div>
+        <div class="text-center small"><a href="#">Forgot Your password?</a></div>
+    </form>
+    <div class="text-center small">Already have an Acocunt ?<a href="#">Login</a></div>
+
+</div>
+
+          </div>
+
+
+<!-------------------------------Script for Login Buyer--------------------------------------->
+
+<script>
+$("#loginbuyer").click(function(e){
+      e.preventDefault();
+     
+      var email =$("#buyeremail").val();
+      var password=$("#buyerpassword").val();
+                                                  //alert(catagory);
+                                                  $.ajax({
+
+                                                             type:'GET',
+
+                                                             url:'{{url('/buyerLogin')}}',
+
+                                                             data:{email:email,password:password},
+                                                            
+                                                             
+
+                                                             success:function(data){
+                                                            if(data.success){
+                                                              //console.log(data.success);
+                                                              top.location.href="{{url('/B_dashboard')}}";
+                                                              
+                                                            }
+
+                                                          if(data.errors)
+                                                          {
+                                                         
+                                                            alert(data.errors);     
+                                                          }    
+                                                              
+                                                                  
+
+
+
+                                                             }
+
+                                                          });
+
+
+
+    });
+  </script>
+</script>
+
+<!-------------------------------Panel register start--------------------------------------->
+          <div class="tab-pane fade" id="buyserRegister" role="tabpanel">
+
+            <!--Body-->
+
+            <div class="signin-form">
+
+    <form action="" id="idForm">
+
+    <h2>Join Wepro As Buyer </h2>
+        <p class="hint-text">Sign up with your social media account</p>
+    <div class="social-btn text-center">
+      <a href="#" class="btn btn-primary btn-lg" title="Facebook"><i class="fa fa-facebook"></i></a>
+      <a href="#" class="btn btn-info btn-lg" title="Twitter"><i class="fa fa-twitter"></i></a>
+      <a href="#" class="btn btn-danger btn-lg" title="Google"><i class="fa fa-google"></i></a>
+    </div>
+    <div class="or-seperator"><b>or</b></div>
+    
+        <div class="form-group">
+          <input type="text" class="form-control input-lg" name="emailBuyer" id="emailBuyer" placeholder="email" required="required">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control input-lg" name="usernameBuyer" id="usernameBuyer" placeholder="Username" required="required">
+        </div>
+      <div class="form-group">
+          <input type="password" class="form-control input-lg" name="passwordBuyer" id="passwordBuyer" placeholder="Password" required="required">
+        </div>
+        
+        <div class="form-group">
+            <button type="button" class="btn btn-success btn-lg btn-block signup-btn" id="registerBuyer">Sign Up</button>
+        </div>
+
+        <div class="alert alert-danger  buyerError" style="display:none">
+         
+        </div>
+
+        <!--
+@if ($errors->any())
+
+    <div class="alert alert-success alert-dismissible">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+-->
+        <div class="text-center small"><a href="#">Forgot Your password?</a></div>
+    </form>
+
+
+    
+</div>
+
+          </div>
+            
+          </div>
+          <!--/.Panel register end-->
+      
+
+        <!-- end panel tab -->  
+       
+    <button type="button" class="btn btn-outline-info waves-effect ml-auto closeBuyer">Close</button>
+  </div>
+
+</div>
 
 
 
@@ -238,8 +416,8 @@
 
     <form action="" id="idForm">
 
-    <h2>Sign In</h2>
-        <p class="hint-text">Sign up with your social media account</p>
+    <h2>login Seller</h2>
+        <p class="hint-text">Sign in with your social media account</p>
     <div class="social-btn text-center">
       <a href="#" class="btn btn-primary btn-lg" title="Facebook"><i class="fa fa-facebook"></i></a>
       <a href="#" class="btn btn-info btn-lg" title="Twitter"><i class="fa fa-twitter"></i></a>
@@ -247,21 +425,66 @@
     </div>
     <div class="or-seperator"><b>or</b></div>
         <div class="form-group">
-          <input type="text" class="form-control input-lg" name="email" placeholder="email or username" required="required">
+          <input type="text" class="form-control input-lg" name="emailSeller" id="emailSeller" placeholder="email or username" required="required">
         </div>
       <div class="form-group">
-          <input type="password" class="form-control input-lg" name="password" placeholder="Password" required="required">
+          <input type="password" class="form-control input-lg" name="passwordSeller" id="passwordSeller" placeholder="Password" required="required">
         </div>
          
         <div class="form-group">
-            <button type="button" class="btn btn-success btn-lg btn-block signup-btn" id="loginSeller">Sign Up</button>
+            <button type="button" class="btn btn-success btn-lg btn-block signup-btn" id="loginSeller">Login</button>
         </div>
-        <div class="text-center small"><a href="#">Forgot Your password?</a></div>
+        
     </form>
-    <div class="text-center small">Already have an Acocunt ?<a href="#">Login</a></div>
+    
 </div>
 
           </div>
+
+
+          <script>
+$("#loginSeller").click(function(e){
+      e.preventDefault();
+     
+      var email =$("#emailSeller").val();
+      var password=$("#passwordSeller").val();
+                                                  //alert(catagory);
+                                                  $.ajax({
+
+                                                             type:'GET',
+
+                                                             url:'{{url('/sellerLogin')}}',
+
+                                                             data:{email:email,password:password},
+                                                            
+                                                             
+
+                                                             success:function(data){
+                                                            if(data.success){
+                                                              //console.log(data.success);
+                                                              top.location.href="{{url('/S_dashboard')}}";
+                                                              
+                                                            }
+
+                                                          if(data.errors)
+                                                          {
+                                                         
+                                                            alert(data.errors);     
+                                                          }    
+                                                              
+                                                                  
+
+
+
+                                                             }
+
+                                                          });
+
+
+
+    });
+  </script>
+</script>
           <!--/.Panel 7-->
 
           <!--Panel register start-->
@@ -349,42 +572,49 @@
 		<div class="header-warp">
 			<div class="container">
 				<a href="#" class="site-logo">
-					<img src="img/logo.png" alt="">
+					<h2>Wepro</h2>
 				</a>
 				<div class="user-panel">
-					<button type="button" id="myBtn" style="border: none; background-color: transparent;"><a href="#" >Buyer</a></button><span>/</span><button type="button" id="myBtn2" style="border: none; background-color: transparent;"><a href="#" >Seller</a></button>
+					<button type="button" class="myBtn" style="border: none; background-color: transparent;"><a href="#" >Buyer</a></button><span>/</span><button type="button" id="myBtn2" style="border: none; background-color: transparent;"><a href="#" >Seller</a></button>
 				</div>
 				
 <!-- javascript for model box -->
-				<script>
-// Get the modal
-//var modal = document.getElementById("myModal");
+<script>
+
+$(document).ready(function(){
+
+
+
+var buyerModel = document.getElementById("buyerModel");
 
 var modal1 = document.getElementById("myModal1");
 
 // Get the button that opens the modal
-//ar btn = document.getElementById("myBtn");
+var buyerBtn = document.getElementsByClassName("myBtn")[0];
 
 var btn2 = document.getElementById("myBtn2");
 
 // Get the <span> element that closes the modal
-//var span = document.getElementsByClassName("close")[0];
+var span = document.getElementsByClassName("closeBuyer")[0];
 
 var span2 = document.getElementsByClassName("closeSeller")[0];
 
 // When the user clicks the button, open the modal 
-//btn.onclick = function() {
- // modal.style.display = "block";
-//}
+buyerBtn.onclick = function() {
+  buyerModel.style.display = "block";
+}
 
 
 btn2.onclick = function() {
   modal1.style.display = "block";
 }
 // When the user clicks on <span> (x), close the modal
-//span.onclick = function() {
-  //modal.style.display = "none";
-//}
+span.onclick = function() {
+  buyerModel.style.display = "none";
+  $("#username").val('');
+  $("#email").val();
+  $("#password").val();
+}
 
 
 span2.onclick = function() {
@@ -409,6 +639,9 @@ window.onclick = function(event) {
   $("#password").val();
   }
 }
+
+});
+
 </script>
 
 
@@ -423,13 +656,36 @@ window.onclick = function(event) {
 					<li><a href="about.html">About us</a></li>
 					<li><a href="courses.html">Courses</a></li>
 					<li><a href="blog.html">News</a></li>
-					<li><a href="{{url('/jobReuestForm')}}">Post Request</a></li>
+					<li><a href="#" id="postRequest">Post Request</a></li>
 				</ul>
 			</div>
 		</div>
 	</header>
 	<!-- Header section end -->
+<script>
+$(document).ready(function(){
+$("#postRequest").click(function(){
+    <?php
+   if(Session::has('buyerId')){
+    ?>
+  console.log(Session('buyerId'));
+  top.location.href="{{url('/jobRequestForm')}}";
 
+
+  <?php
+}
+else{
+  ?>
+  alert("please login or Create account First");
+     buyerModel.style.display = "block";
+
+ <?php
+}
+?>
+  });
+  
+  });
+</script>
 
 	<!-- Hero section -->
 	<section class="hero-section set-bg" data-setbg="img/bg.jpg">
@@ -763,6 +1019,62 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<!--====== Javascripts & Jquery ======-->
 
   <script>
+    $("#registerBuyer").click(function(e){
+       e.preventDefault();
+      var username=$("#usernameBuyer").val();
+      var email =$("#emailBuyer").val();
+      var password=$("#passwordBuyer").val();
+      console.log(username);
+                                                  //alert(catagory);
+                                                  $.ajax({
+
+                                                             type:'GET',
+
+                                                             url:'{{url('/buyerSignup')}}',
+
+                                                             data:{email:email,username:username,password:password},
+                                                            
+                                                             
+
+                                                             success:function(data){
+                                                            if(data.success){
+                                                              //console.log(data.success);
+                                                              top.location.href="{{url('/buyerRegister')}}";
+                                                              $("#username").val('');
+                                                              $("#email").val('');
+                                                              $("#password").val('');
+                                                              $("#buyerModel").hide();
+                                                              //console.log(data.success);
+                                                            }
+
+                                                          if(data.errors)
+                                                          {
+                                                          $.each(data.errors, function(key, value){
+                                                              //console.log(key);
+                                                              $('.buyerError').show();
+                                                              $('.buyerError').append('<p>'+value+'</p>');
+                                                          });
+
+                                                          setTimeout(function() {
+                                                            $('.buyerError').html('');
+                                                            $('.buyerError').css('display','none');
+                                                            }, 3000);
+                                                              
+                                                          }    
+                                                              
+                                                                  
+
+
+
+                                                             }
+
+                                                          });
+
+
+
+    });
+  </script>
+  <script>
     $("#registerSeller").click(function(e){
        e.preventDefault();
       var username=$("#username").val();
@@ -826,3 +1138,4 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 </body>
 </html>
+

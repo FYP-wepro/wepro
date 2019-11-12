@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\File;
  use Illuminate\Database\QueryException;
 use Carbon\Carbon;
 Use Validator;
+use Session;
 use App\Sellerpersonal;
 use App\subcatagorye;
 
@@ -228,7 +229,48 @@ FROM sellerpersonals, ssubcatagories
     }
 
 
+//////////////////////////////////////////////////////////////////////////////////
 
-  
+    public function login(Request $request){
+    $email=$request->email;
+    $password=$request->password;
+
+
+
+      $sql="select * from sellers where username='$email' OR email='$email' AND password=$password";
+
+      $sellers=DB::select($sql);
+      
+      
+
+      if(count($sellers)>0){ 
+        session(['sellerId' => $sellers[0]->id]);
+
+          return response()->json(["success"=>'sucecess']);
+      }
+      else{
+          return response()->json(['errors'=>'invalid username OR Password']);
+        }
+    }
+  //////////////////////////////////////////////////////////////////////////////////////
+
+    public function dashboard(){
+    $sellerId= session('sellerId');
     
+    $sql="Select mainCataName from smaincatagories where sellerId= $sellerId";
+    $catagory = DB::select($sql);
+    $first= $catagory[0]->mainCataName;
+    $second= $catagory[1]->mainCataName;
+    $sql2="select requests.*,buyerpersonals.* from requests,buyerpersonals where requests.catagory='$first' or requests.catagory='$second' AND requests.buyerId=buyerpersonals.buyerId";
+    $requests = DB::select($sql2);
+   
+    return view('seller.s_deshboard', ['requests' => $requests]);
+
+    }
+    /////////////////////////////////////////////////////////////////////////
+
+    public function logout(){
+        Session::flush();
+   return redirect('/');
+    }
 }
